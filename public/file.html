@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storm Vault</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Storm Vault</h1>
+    </header>
+    <main>
+        <section class="container">
+            <h2>Enviar Arquivo CSV</h2>
+            <label for="fileToLoad">Escolha um arquivo CSV para upload:</label>
+            <input type="file" id="fileToLoad" class="file-input">
+            <button type="button" onclick="uploadCSV()" class="btn">Upload CSV</button>
+        </section>
+        <section class="container">
+            <h2>Adicionar Tipo de Dado</h2>
+            <form id="addTipoDeDadoForm">
+                <label for="nomeDado">Nome do Dado (CSV):</label>
+                <input type="text" id="nomeDado" name="nomeDado" placeholder="Digite o nome do dado que aparece no CSV" required>
+                <label for="descricaoDado">Nome do Dado (Visibilidade):</label>
+                <input type="text" id="descricaoDado" name="descricaoDado" placeholder="Digite o nome do dado que aparecerá nas tabelas" required>
+                <button type="button" onclick="addTipoDeDado()" class="btn">Adicionar Tipo de Dado</button>
+            </form>
+        </section>
+        <section class="container">
+            <h2>Adicionar Sensor</h2>
+            <form id="addSensorForm">
+                <label for="idSensor">ID do Sensor:</label>
+                <input type="text" id="idSensor" name="idSensor" placeholder="Digite o ID" required>
+                <label for="marca">Marca:</label>
+                <input type="text" id="marca" name="marca" placeholder="Digite a marca">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite o nome do sensor">
+                <label for="localizacao">Localização:</label>
+                <input type="text" id="localizacao" name="localizacao" placeholder="Digite a localização">
+                <button type="button" onclick="addSensor()" class="btn">Adicionar Sensor</button>
+            </form>
+        </section>
+        <section class="container">
+            <h2>Adicionar Defeito</h2>
+            <form id="addDefeitoForm">
+                <label for="idDefeito">ID do Defeito:</label>
+                <input type="number" id="idDefeito" name="idDefeito" placeholder="Digite o ID" required>
+                <label for="descricaoDefeito">Descrição:</label>
+                <input type="text" id="descricaoDefeito" name="descricaoDefeito" placeholder="Digite a descrição" required>
+                <button type="button" onclick="addDefeito()" class="btn">Adicionar Defeito</button>
+            </form>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
