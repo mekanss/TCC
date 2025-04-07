@@ -85,6 +85,8 @@ function postReading(reading) {
 }
 
 async function insertReadings(readings) {
+    const startTime = Date.now(); 
+
     try {
         const results = await Promise.allSettled(
             readings.map(reading => postReading(reading))
@@ -92,13 +94,18 @@ async function insertReadings(readings) {
         
         const errors = results.filter(r => r.status === 'rejected');
         const successCount = results.length - errors.length;
+        
+        const endTime = Date.now(); 
+        const timeSpentSeconds = ((endTime - startTime) / 1000).toFixed(2);
 
         if (errors.length > 0) {
             console.error('Erros ocorridos:', errors);
             alert(`${successCount} leituras inseridas com sucesso\n` +
-                  `${errors.length} erros ocorreram. Verifique o console para detalhes.`);
+                  `${errors.length} erros ocorreram.\n` +
+                  `Tempo gasto: ${timeSpentSeconds} segundos.`);
         } else {
-            alert(`${successCount} leituras inseridas com sucesso`);
+            alert(`${successCount} leituras inseridas com sucesso.\n` +
+                  `Tempo gasto: ${timeSpentSeconds} segundos.`);
         }
     } catch (error) {
         console.error('Erro geral:', error);
